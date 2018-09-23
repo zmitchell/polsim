@@ -1,33 +1,33 @@
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct SystemDef {
-    beam: BeamDef,
-    elements: Vec<ElemDef>,
+    pub beam: BeamDef,
+    pub elements: Vec<ElemDef>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct BeamDef {
-    polarization: PolType,
-    angle: Option<f64>,
-    angle_units: Option<AngleType>,
-    x: Option<f64>,
-    x_phase: Option<f64>,
-    y: Option<f64>,
-    y_phase: Option<f64>,
-    phase_units: Option<AngleType>,
-    handedness: Option<HandednessType>,
+    pub polarization: PolType,
+    pub angle: Option<f64>,
+    pub angle_units: Option<AngleType>,
+    pub x_mag: Option<f64>,
+    pub x_phase: Option<f64>,
+    pub y_mag: Option<f64>,
+    pub y_phase: Option<f64>,
+    pub phase_units: Option<AngleType>,
+    pub handedness: Option<HandednessType>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct ElemDef {
-    element_type: ElemType,
-    phase: Option<f64>,
-    phase_units: Option<AngleType>,
-    angle: Option<f64>,
-    angle_units: Option<f64>,
+    pub element_type: ElemType,
+    pub phase: Option<f64>,
+    pub phase_units: Option<AngleType>,
+    pub angle: Option<f64>,
+    pub angle_units: Option<AngleType>,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum ElemType {
     Polarizer,
@@ -37,7 +37,7 @@ pub enum ElemType {
     QWP,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum PolType {
     Linear,
@@ -45,17 +45,16 @@ pub enum PolType {
     Elliptical,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum AngleType {
     Degrees,
     Radians,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum HandednessType {
     Left,
     Right,
 }
-
