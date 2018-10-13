@@ -13,3 +13,4 @@ num = "~0.2.0"
 
 [dev-dependencies]
 proptest = "~0.8.6"
+assert_approx_eq = "~1.0.0"

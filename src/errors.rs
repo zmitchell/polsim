@@ -7,12 +7,12 @@ error_chain! {
 
         MissingParameter(p: String) {
             description("missing parameter"),
-            display("missing parameter '{}'", p),
+            display("missing parameter in definition: '{}'", p),
         }
 
-        ExtraParameter(p: String) {
+        ExtraParameter(m: String) {
             description("extra parameter"),
-            display("extra parameter '{}'", p),
+            display("extra parameter in definition: '{}'", m),
         }
 
         InvalidValue(m: String) {
@@ -20,5 +20,14 @@ error_chain! {
             display("{}", m),
         }
 
+        WrongElementType(m: String) {
+            description("attempted to validate wrong element type"),
+            display("{}", m),
+        }
+
+        WrongPolarizationType(m: String) {
+            description("attempted to validate a beam with the wrong polarization type"),
+            display("{}", m)
+        }
     }
 }

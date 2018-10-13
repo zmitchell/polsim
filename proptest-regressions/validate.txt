@@ -1,0 +1,11 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+xs 1694665257 2338387879 4255801916 4114090057 # shrinks to def = ElemDef { element_type: Polarizer, phase: Some(0.0), phase_units: None, angle: Some(0.0), angle_units: Some(Degrees) }
+xs 2252861133 3108838990 893665209 1967170785 # shrinks to def = BeamDef { polarization: Linear, angle: None, angle_units: None, x_mag: None, x_phase: None, y_mag: None, y_phase: None, phase_units: None, handedness: None }
+xs 2907546909 1127201414 585034674 1307136702 # shrinks to def = BeamDef { polarization: Elliptical, angle: None, angle_units: None, x_mag: Some(0.0), x_phase: Some(-0.0), y_mag: Some(0.0), y_phase: Some(0.0), phase_units: Some(Degrees), handedness: None }
+xs 1201649113 1060182592 1676528929 4161554610 # shrinks to def = BeamDef { polarization: Elliptical, angle: None, angle_units: None, x_mag: None, x_phase: None, y_mag: None, y_phase: None, phase_units: None, handedness: None }
+xs 3551548415 1536799519 3650322502 717056945 # shrinks to def = BeamDef { polarization: Elliptical, angle: None, angle_units: None, x_mag: Some(0.0), x_phase: Some(0.0), y_mag: Some(-0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000017098704992547195), y_phase: Some(0.0), phase_units: Some(Degrees), handedness: None }

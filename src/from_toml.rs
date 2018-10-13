@@ -27,7 +27,7 @@ pub struct ElemDef {
     pub angle_units: Option<AngleType>,
 }
 
-#[derive(Debug, Deserialize, Serialize, Copy, Clone)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone, PartialEq)]
 #[serde(rename_all = "lowercase")]
 pub enum ElemType {
     Polarizer,
@@ -37,7 +37,7 @@ pub enum ElemType {
     QWP,
 }
 
-#[derive(Debug, Deserialize, Serialize, Copy, Clone)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone, PartialEq)]
 #[serde(rename_all = "lowercase")]
 pub enum PolType {
     Linear,
@@ -45,14 +45,14 @@ pub enum PolType {
     Elliptical,
 }
 
-#[derive(Debug, Deserialize, Serialize, Copy, Clone)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone, PartialEq)]
 #[serde(rename_all = "lowercase")]
 pub enum AngleType {
     Degrees,
     Radians,
 }
 
-#[derive(Debug, Deserialize, Serialize, Copy, Clone)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone, PartialEq)]
 #[serde(rename_all = "lowercase")]
 pub enum HandednessType {
     Left,

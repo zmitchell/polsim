@@ -7,6 +7,13 @@ extern crate serde_derive;
 #[macro_use]
 extern crate error_chain;
 extern crate num;
+#[cfg(test)]
+#[macro_use]
+extern crate proptest;
+#[cfg(test)]
+#[macro_use]
+extern crate assert_approx_eq;
+
 pub mod errors;
 pub mod from_toml;
 pub mod validate;
