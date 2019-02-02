@@ -39,6 +39,16 @@ y_mag: 5.00000e-1
 y_phase: 0.00000e0
 ```
 
+If you want to impress your friends and family, you can print the results in a table via the `-p/--pretty` flag:
+```
+$ polsim -p simulation.toml
++------------+------------+-----------+------------+-----------+
+| intensity  | x_mag      | x_phase   | y_mag      | y_phase   |
++------------+------------+-----------+------------+-----------+
+| 5.00000e-1 | 5.00000e-1 | 0.00000e0 | 5.00000e-1 | 0.00000e0 |
++------------+------------+-----------+------------+-----------+
+```
+
 For more information, see the [User Guide][guide].
 
 ## License
