@@ -1,48 +1,45 @@
-# PolSim (W.I.P.)
+# polsim
 
-A (W.I.P.) command line utility for doing polarization simulations.
+A command line utility for doing polarization simulations with [Jones calculus][jones_calc].
+
+For installation and usage instructions, see the [User Guide][guide].
 
 ## About
 
-PolSim is a command line utility that wraps a polarization simulation library (found
-[here][polarization], also written by me). Here's how it works:
+`polsim` is a command line utility that wraps a polarization simulation library (found
+[here][polarization], also written by me). Both the command line utility and the polarization simulation library are written in [Rust][rust]. Here's how it works:
 
 * You specify a beam and some optical elements in a [TOML][toml] file.
-* The command line utility, `polsim`, reads the file and performs the simulation.
-* The results of the simulation are either printed to the terminal (i.e. `stdout`) or to a file.
+* The command line utility reads the file and performs the simulation.
+* The results of the simulation are printed to the terminal.
 
-For example, the file shown below would specify a linearly polarized beam parallel to
-the x-axis, which passes through a quarter-wave plate at a 45 degree angle relative to
-the x-axis, and then a linear polarizer oriented parallel to the y-axis.
+For example, to specify a linearly polarized beam oriented at 0 degrees (i.e. horizontally) that passes through a polarizer oriented at 45 degrees, your file would look like this:
 
 ```toml
 # simulation.toml
-[[beam]]
+[beam]
 polarization = "linear"
 angle = 0.0
 angle_units = "degrees"
 
 [[elements]]
-element_type = "qwp"
-angle = 45.0
-angle_units = "degrees"
-
-[[elements]]
 element_type = "polarizer"
-angle = 90.0
+angle = 45.0
 angle_units = "degrees"
 ```
 
 You would use `polsim` to read the file and do the simulation like this:
 
 ```
-$ polsim -i simulation.toml
-<simulation results printed here>
+$ polsim simulation.toml
+intensity: 5.00000e-1
+x_mag: 5.00000e-1
+x_phase: 0.00000e0
+y_mag: 5.00000e-1
+y_phase: 0.00000e0
 ```
 
-As mentioned at the beginning, this is a work in progress. I haven't quite decided on
-the format of the output yet, but I suspect it will include the magnitudes and phases of
-both x- and y-components, as well as the intensity.
+For more information, see the [User Guide][guide].
 
 ## License
 
@@ -60,5 +57,8 @@ submitted for inclusion in the work by you, as defined in the Apache-2.0
 license, shall be dual licensed as above, without any additional terms or
 conditions.
 
+[jones_calc]: https://en.wikipedia.org/wiki/Jones_calculus
 [polarization]: https://crates.io/crates/polarization
 [toml]: https://github.com/toml-lang/toml
+[rust]: https://www.rust-lang.org/
+[guide]: www.example.com
