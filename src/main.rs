@@ -9,12 +9,28 @@ use polarization::jones::JonesVector;
 use polsim::errors::ResultExt;
 use polsim::from_toml::SystemDef;
 use polsim::validate;
+use polsim::report::{basic_report, table_report};
 use quicli::prelude::*;
 
 #[derive(Debug, StructOpt)]
+#[structopt(
+    name = "polsim",
+    about = "Simulate polarization with Jones calculus."
+)]
 struct Cli {
-    #[structopt(long = "input", short = "i")]
+    #[structopt(
+        raw(required = r#"true"#),
+        value_name = "FILE",
+        help = "Input file defining the optical system."
+    )]
     input: String,
+    #[structopt(
+        short = "p",
+        long = "pretty",
+        raw(takes_value = r#"false"#),
+        help = "Pretty-print the output as a table."
+    )]
+    pretty: bool
 }
 
 main!(|args: Cli| {
@@ -30,14 +46,20 @@ main!(|args: Cli| {
     }
     let system = system.unwrap();
     let final_beam = system.propagate();
+
     match final_beam {
         Ok(beam) => {
-            let intensity = beam.intensity();
-            match intensity {
-                Ok(int) => println!("intensity: {:e}", int),
+            match beam.intensity() {
+                Ok(_) => {
+                    if args.pretty {
+                        table_report(beam);
+                    } else {
+                        basic_report(beam);
+                    }
+                },
                 Err(err) => eprintln!("error: {}", err),
             }
-        }
+        },
         Err(err) => eprintln!("error: {}", err),
     }
 });
