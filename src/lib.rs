@@ -18,5 +18,5 @@ extern crate prettytable;
 
 pub mod errors;
 pub mod from_toml;
-pub mod validate;
 pub mod report;
+pub mod validate;

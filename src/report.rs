@@ -1,6 +1,5 @@
 use polarization::jones::{Beam, JonesVector};
-use prettytable::{Table, Row, Cell};
-
+use prettytable::{Cell, Row, Table};
 
 pub fn basic_report(beam: Beam) {
     println!("intensity: {:.5e}", beam.intensity().unwrap());
@@ -9,7 +8,6 @@ pub fn basic_report(beam: Beam) {
     println!("y_mag: {:.5e}", beam.y().norm());
     println!("y_phase: {:.5e}", beam.y().arg());
 }
-
 
 pub fn table_report(mut beam: Beam) {
     beam.remove_common_phase_mut();

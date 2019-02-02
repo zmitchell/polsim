@@ -65,7 +65,8 @@ fn validate_polarizer(elem: &ElemDef) -> Result<OpticalElement> {
         return Err(ErrorKind::WrongElementType(format!(
             "Expected to validate element type Polarizer, found {:#?} instead",
             elem.element_type
-        )).into());
+        ))
+        .into());
     }
     error_on_extra_params!(elem, phase, phase_units);
     let angle_res =
@@ -81,7 +82,8 @@ fn validate_hwp(elem: &ElemDef) -> Result<OpticalElement> {
         return Err(ErrorKind::WrongElementType(format!(
             "Expected to validate element type HWP, found {:#?} instead",
             elem.element_type
-        )).into());
+        ))
+        .into());
     }
     error_on_extra_params!(elem, phase, phase_units);
     let angle_res =
@@ -97,7 +99,8 @@ fn validate_qwp(elem: &ElemDef) -> Result<OpticalElement> {
         return Err(ErrorKind::WrongElementType(format!(
             "Expected to validate element type QWP, found {:#?} instead",
             elem.element_type
-        )).into());
+        ))
+        .into());
     }
     error_on_extra_params!(elem, phase, phase_units);
     let angle_res =
@@ -115,7 +118,8 @@ fn validate_rotator(elem: &ElemDef) -> Result<OpticalElement> {
         return Err(ErrorKind::WrongElementType(format!(
             "Expected to validate element type Rotator, found {:#?} instead",
             elem.element_type
-        )).into());
+        ))
+        .into());
     }
     error_on_extra_params!(elem, phase, phase_units);
     let angle_res =
@@ -133,7 +137,8 @@ fn validate_retarder(elem: &ElemDef) -> Result<OpticalElement> {
         return Err(ErrorKind::WrongElementType(format!(
             "Expected to validate element type Retarder, found {:#?} instead",
             elem.element_type
-        )).into());
+        ))
+        .into());
     }
     let angle_res =
         validate_angle(&elem.angle, &elem.angle_units).chain_err(|| "invalid angle definition");
@@ -167,7 +172,8 @@ fn validate_linear_pol(beam: &BeamDef) -> Result<Beam> {
         return Err(ErrorKind::WrongPolarizationType(format!(
             "expected to validate beam with polarization Linear, found {:#?} instead",
             beam.polarization
-        )).into());
+        ))
+        .into());
     }
     error_on_extra_params!(
         beam,
@@ -199,7 +205,8 @@ fn validate_circular_pol(beam: &BeamDef) -> Result<Beam> {
         return Err(ErrorKind::WrongPolarizationType(format!(
             "expected to validate beam with polarization Circular, found {:#?} instead",
             beam.polarization
-        )).into());
+        ))
+        .into());
     }
     error_on_extra_params!(
         beam,
@@ -225,7 +232,8 @@ fn validate_x(beam: &BeamDef) -> Result<Complex<f64>> {
         return Err(ErrorKind::InvalidValue(format!(
             "invalid magnitude {}, magnitudes must be >= 0",
             beam.x_mag.unwrap()
-        )).into());
+        ))
+        .into());
     }
     let phase = match beam.phase_units.unwrap() {
         AngleType::Degrees => beam.x_phase.unwrap().to_radians(),
@@ -240,7 +248,8 @@ fn validate_y(beam: &BeamDef) -> Result<Complex<f64>> {
         return Err(ErrorKind::InvalidValue(format!(
             "invalid magnitude {}, magnitudes must be >= 0",
             beam.y_mag.unwrap()
-        )).into());
+        ))
+        .into());
     }
     let phase = match beam.phase_units.unwrap() {
         AngleType::Degrees => beam.y_phase.unwrap().to_radians(),
@@ -254,7 +263,8 @@ fn validate_elliptical_pol(beam: &BeamDef) -> Result<Beam> {
         return Err(ErrorKind::WrongPolarizationType(format!(
             "expected to validate beam with polarization Elliptical, found {:#?} instead",
             beam.polarization
-        )).into());
+        ))
+        .into());
     }
     error_on_extra_params!(beam, angle, angle_units, handedness);
     let x_res = validate_x(&beam).chain_err(|| "invalid x component definition");
@@ -300,7 +310,8 @@ mod test {
             Just(ElemType::QWP),
             Just(ElemType::Rotator),
             Just(ElemType::Retarder),
-        ].boxed()
+        ]
+        .boxed()
     }
 
     fn arb_angle_type() -> BoxedStrategy<AngleType> {
@@ -338,7 +349,8 @@ mod test {
                 phase_units: ph_units,
                 angle: ang,
                 angle_units: ang_units,
-            }).boxed()
+            })
+            .boxed()
     }
 
     fn arb_polarization_type() -> BoxedStrategy<PolType> {
@@ -346,7 +358,8 @@ mod test {
             Just(PolType::Linear),
             Just(PolType::Circular),
             Just(PolType::Elliptical),
-        ].boxed()
+        ]
+        .boxed()
     }
 
     fn arb_optional_handedness() -> BoxedStrategy<Option<HandednessType>> {
@@ -376,7 +389,8 @@ mod test {
                 y_phase: yp,
                 phase_units: pu,
                 handedness: h,
-            }).boxed()
+            })
+            .boxed()
     }
 
     macro_rules! assert_angles_approx_eq {

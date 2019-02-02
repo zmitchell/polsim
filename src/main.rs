@@ -8,15 +8,12 @@ extern crate toml;
 use polarization::jones::JonesVector;
 use polsim::errors::ResultExt;
 use polsim::from_toml::SystemDef;
-use polsim::validate;
 use polsim::report::{basic_report, table_report};
+use polsim::validate;
 use quicli::prelude::*;
 
 #[derive(Debug, StructOpt)]
-#[structopt(
-    name = "polsim",
-    about = "Simulate polarization with Jones calculus."
-)]
+#[structopt(name = "polsim", about = "Simulate polarization with Jones calculus.")]
 struct Cli {
     #[structopt(
         raw(required = r#"true"#),
@@ -30,7 +27,7 @@ struct Cli {
         raw(takes_value = r#"false"#),
         help = "Pretty-print the output as a table."
     )]
-    pretty: bool
+    pretty: bool,
 }
 
 main!(|args: Cli| {
@@ -48,17 +45,15 @@ main!(|args: Cli| {
     let final_beam = system.propagate();
 
     match final_beam {
-        Ok(beam) => {
-            match beam.intensity() {
-                Ok(_) => {
-                    if args.pretty {
-                        table_report(beam);
-                    } else {
-                        basic_report(beam);
-                    }
-                },
-                Err(err) => eprintln!("error: {}", err),
+        Ok(beam) => match beam.intensity() {
+            Ok(_) => {
+                if args.pretty {
+                    table_report(beam);
+                } else {
+                    basic_report(beam);
+                }
             }
+            Err(err) => eprintln!("error: {}", err),
         },
         Err(err) => eprintln!("error: {}", err),
     }
