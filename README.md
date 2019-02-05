@@ -1,5 +1,7 @@
 # polsim
 
+[![Build Status](https://travis-ci.org/zmitchell/polsim.svg?branch=master)](https://travis-ci.org/zmitchell/polsim)
+
 A command line utility for doing polarization simulations with [Jones calculus][jones_calc].
 
 For installation and usage instructions, see the [User Guide][guide].
