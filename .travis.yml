@@ -2,15 +2,66 @@ language: rust
 rust:
  - stable
 cache: cargo
-os:
-  - linux
-  - osx
-  - windows
-script:
- - cargo build --verbose
- - cargo test --verbose
-matrix:
-  allow_failures:
-    - rust:
-      - nightly
+
+env:
+  global:
+    - CRATE_NAME=polsim
+
+stages:
+  - test
+  - release
+
+jobs:
   fast_finish: true
+  include:
+    - stage: test
+      os: linux
+      script:
+        - cargo build --verbose
+        - cargo test --verbose
+    - stage: test
+      os: osx
+      script:
+        - cargo build --verbose
+        - cargo test --verbose
+    - stage: test
+      os: windows
+      script:
+        - cargo build --verbose
+        - cargo test --verbose
+    - stage: release
+      os: linux
+      script:
+        - cargo build --release --verbose
+        - cp target/release/$CRATE_NAME $CRATE_NAME
+        - tar -czf $CRATE_NAME-$TRAVIS_TAG-$TARGET.tar.gz $CRATE_NAME
+      env: TARGET=x86_64-unknown-linux-gnu
+      if: tag =~ /^\d+\.\d+\.\d+/
+    - stage: release
+      os: osx
+      env: TARGET=x86_64-apple-darwin
+      script:
+        - cargo build --release --verbose
+        - cp target/release/$CRATE_NAME $CRATE_NAME
+        - tar -czf $CRATE_NAME-$TRAVIS_TAG-$TARGET.tar.gz $CRATE_NAME
+      if: tag =~ /^\d+\.\d+\.\d+/
+    - stage: release
+      os: windows
+      script:
+        - cargo build --release --verbose
+        - cp target/release/$CRATE_NAME $CRATE_NAME.exe
+        - 7z a $CRATE_NAME-$TRAVIS_TAG-$TARGET.zip $CRATE_NAME.exe
+      env: TARGET=x86_64-pc-windows-msvc
+      if: tag =~ /^\d+\.\d+\.\d+/
+
+deploy:
+  provider: releases
+  name: v$TRAVIS_TAG
+  api_key:
+    secure: "mP0ArvjTVEq2VaunlzfAzS9yDTrzaPIF+rcSUXZF0xAuYNG4Ownn7sNl5K9bjBsxgR00hlmQBA7JMkcvMveSRC0Zf2OQ5QSLRxqKweRz5lCvBge3H+SxvBVryI4e33oRBMPtPfMkpI+O7tzBgT7sb0phihSrpJ76ufA5q4H3t1+qT9dVaqSmsSyQE0eulI+GCuGK/A2O0yDndQb+/NxlXRAXtOi2IyBymdOjFkShrB+WlYUupi3VA1efqBoa6t/8DjgPSk2DdNL+q0fYfyjaTr8A0JIrdPBAadmkZEY1vZFlbcXvEACwew8bQttzvGcbNhD/nqVABBtWns6se3Bu1IQ9pWpphA8S87iwhRSwPqzWdr+xpi4zs58bX8+6eRi65yqAGCN5gain6wXbepVwfsk2W9u1vtt7Gq09LIaYnqxjEVJziviUaHNEbfMsu0G0Ni337J2+sNHhPusx3sCiV18yrjxXnwejCV4MM9N6sgrX0gIBNHTBvDGs0nMdIZT6MBY9zL1TRTyywoO+/wLHcNlLAczJ2h7baBLki40M8fFlNh/6OEESMEzFt9++9uIT/PZTluvXSx5fmHRRWdp5SZ2nw4/a/MpUdrENdbS8gPMNVCb7M6QnpPD6I7b4cFxCb2gzot9h2ClsDPwvF9N97jW5xtUSvcabuDKOvaSEMPc="
+  draft: true
+  file_glob: true
+  skip_cleanup: true
+  on:
+    tags: true
+  file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
