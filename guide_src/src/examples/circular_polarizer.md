@@ -19,4 +19,15 @@ angle = 0
 angle_units = "degrees"
 ```
 
-The key here is that the QWP and the polarizer need to be at 45 degrees relative to on another. If this angle is off, you'll end up with elliptical polarization.
+The key here is that the QWP and the polarizer need to be at 45 degrees relative to on another. If this angle is off, you'll end up with elliptical polarization. Here's what the output looks like:
+
+```
+$ polsim circular_polarizer.toml
+intensity: 5.00000e-1
+x_mag: 5.00000e-1
+x_phase: 0.00000e0
+y_mag: 5.00000e-1
+y_phase: 1.57080e0
+```
+
+If you go back through the previous two examples, you'll see that the phases (`x_phase` and `y_phase`) are zero for both examples. This time, however, `y_phase` is not zero, it's `pi/2`! That tells us that there is a delay between the x- and y-components.
