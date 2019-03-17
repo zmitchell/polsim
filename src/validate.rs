@@ -273,7 +273,10 @@ fn validate_elliptical_pol(beam: &BeamDef) -> Result<Beam> {
         Err(err) => Err(err),
         Ok(x) => match y_res {
             Err(err) => Err(err),
-            Ok(y) => Ok(Beam::new(x, y)),
+            Ok(y) => {
+                let norm = (x.norm_sqr() + y.norm_sqr()).sqrt();
+                Ok(Beam::new(x / norm, y / norm))
+            }
         },
     }
 }
