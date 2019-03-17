@@ -1,0 +1,12 @@
+[book]
+authors = ["Zach Mitchell"]
+multilingual = false
+src = "src"
+title = "polsim Documentation"
+
+[build]
+build-dir = "../docs"
+create-missing = true
+
+[output.html]
+mathjax-support = true
