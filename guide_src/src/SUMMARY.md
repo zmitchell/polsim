@@ -2,7 +2,7 @@
 
 - [polsim](polsim.md)
 - [Installation](installation.md)
-- [Quickstart](quickstart.md)
+- [Usage](usage.md)
 - [Simulations](simulations.md)
     - [TOML in a Nutshell](toml.md)
     - [File Format](format.md)
