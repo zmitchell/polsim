@@ -2,11 +2,11 @@
 
 ## Definitions
 ### Polarization Orientation
-Throughout this documentation you might see me say that the orientation of a beam is 45 degrees. There's a number of different ways to interpret this, so let's spell out exactly what *I* mean when I say that.
+Throughout this documentation you might see me say that the orientation of a beam is 45 degrees. There's a number of different ways to interpret this, so let's spell out exactly what I mean.
 
 - The beam is traveling away from me.
 - The +x-axis is pointed to the right, and corresponds to an angle of zero.
-- All other angles are measured by rotating counter-clockwise from the +x-axis.
+- All other angles are measured counter-clockwise from the +x-axis.
 
 For example, if I say that a beam has an orientation of 90 degrees, that means that it is oriented along the +y-axis. In actuallity, the polarization of a beam is a line that extends out to infinity in both directions, so the polarization in the previous example would extend along both the +y- and -y-axes.
 
