@@ -15,7 +15,7 @@ An optical system is defined by both a beam and a sequence of optical elements t
 ...
 ```
 
-The simulation file uses a format called TOML, which stands for Tom's Obvious, Minimal Language. I'll explain everything you need to know in this guide, but if you want to read more about TOML, you can do so at the TOML [GitHub repository][toml].
+The simulation file uses a format called TOML, which stands for Tom's Obvious, Minimal Language. I'll explain everything you need to know in this guide, but if you want to read more about TOML, you can do so at the [TOML GitHub repository][toml].
 
 There are two main sections of the simulation file. The first section is the part marked by the `[beam]` heading. The second section is marked by one or more `[[elements]]` headings. The `[beam]` heading marks the definition of the beam that you want to start your simulation with. Each `[[elements]]` heading defines an element in the optical system. The specifics about what is needed to define a beam or an element will be discussed in later sections of this guide.
 
