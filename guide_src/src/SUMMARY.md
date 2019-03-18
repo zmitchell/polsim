@@ -4,7 +4,6 @@
 - [Installation](installation.md)
 - [Usage](usage.md)
 - [Simulations](simulations.md)
-    - [TOML in a Nutshell](toml.md)
     - [File Format](format.md)
     - [Beams](beams.md)
         - [Linearly Polarized](beams/linear.md)
