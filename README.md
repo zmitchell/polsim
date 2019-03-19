@@ -2,14 +2,26 @@
 
 [![Build Status](https://travis-ci.com/zmitchell/polsim.svg?branch=master)](https://travis-ci.com/zmitchell/polsim)
 
-A command line utility for doing polarization simulations with [Jones calculus][jones_calc].
-
 For installation and usage instructions, see the [User Guide][guide].
+
+## Elevator Pitch
+
+Would you rather look up (or calculate) the Jones matrix for an optical retarder oriented at an arbitrary angle with an arbitrary phase delay, or would you rather just type this:
+
+```toml
+[[elements]]
+element_type = "retarder"
+phase = 1.57  # pi/2
+phase_units = "radians"
+angle = 45.0
+angle_units = "degrees"
+```
 
 ## About
 
-`polsim` is a command line utility that wraps a polarization simulation library (found
-[here][polarization], also written by me). Both the command line utility and the polarization simulation library are written in [Rust][rust]. Here's how it works:
+`polsim` is a command line tool for quickly doing polarization simulations with [Jones calculus][jones_calc]. Jones calculus allows you to compute the effect of a sequence of optical elements (polarizers, wave plates, etc) on a beam if the initial state (intensity and polarization) is known. A beam is represented as a vector with two elements (x- and y-components), and an optical element is represented as a 2x2 matrix that operates on the beam/vector. `polsim` makes life easy by letting you skip the tedious work of looking up and multiplying the matrices together by hand.
+
+Here's how it works:
 
 * You specify a beam and some optical elements in a [TOML][toml] file.
 * The command line utility reads the file and performs the simulation.
