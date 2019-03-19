@@ -1,0 +1,14 @@
+[beam]
+polarization = "linear"
+angle = 45
+angle_units = "degrees"
+
+[[elements]]
+element_type = "polarizer"
+angle = 0
+angle_units = "degrees"
+
+[[elements]]
+element_type = "polarizer"
+angle = 90
+angle_units = "degrees"

@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Installation - polsim Documentation</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="polsim.html"><strong aria-hidden="true">1.</strong> polsim</a></li><li><a href="installation.html" class="active"><strong aria-hidden="true">2.</strong> Installation</a></li><li><a href="usage.html"><strong aria-hidden="true">3.</strong> Usage</a></li><li><a href="simulations.html"><strong aria-hidden="true">4.</strong> Simulations</a></li><li><ol class="section"><li><a href="format.html"><strong aria-hidden="true">4.1.</strong> File Format</a></li><li><a href="beams.html"><strong aria-hidden="true">4.2.</strong> Beams</a></li><li><ol class="section"><li><a href="beams/linear.html"><strong aria-hidden="true">4.2.1.</strong> Linearly Polarized</a></li><li><a href="beams/circular.html"><strong aria-hidden="true">4.2.2.</strong> Circularly Polarized</a></li><li><a href="beams/elliptical.html"><strong aria-hidden="true">4.2.3.</strong> Elliptically Polarized</a></li></ol></li><li><a href="elements.html"><strong aria-hidden="true">4.3.</strong> Elements</a></li><li><ol class="section"><li><a href="elements/polarizer.html"><strong aria-hidden="true">4.3.1.</strong> Polarizer</a></li><li><a href="elements/rotator.html"><strong aria-hidden="true">4.3.2.</strong> Rotator</a></li><li><a href="elements/retarder.html"><strong aria-hidden="true">4.3.3.</strong> Retarder</a></li><li><a href="elements/qwp.html"><strong aria-hidden="true">4.3.4.</strong> Quarter-Wave Plate</a></li><li><a href="elements/hwp.html"><strong aria-hidden="true">4.3.5.</strong> Half-Wave Plate</a></li></ol></li></ol></li><li><a href="examples.html"><strong aria-hidden="true">5.</strong> Examples</a></li><li><ol class="section"><li><a href="examples/one_polarizer.html"><strong aria-hidden="true">5.1.</strong> One Polarizer</a></li><li><a href="examples/crossed_polarizers.html"><strong aria-hidden="true">5.2.</strong> Crossed Polarizers</a></li><li><a href="examples/circular_polarizer.html"><strong aria-hidden="true">5.3.</strong> Circular Polarizer</a></li></ol></li><li><a href="reference.html"><strong aria-hidden="true">6.</strong> Quick Reference</a></li><li><a href="conventions.html"><strong aria-hidden="true">7.</strong> Conventions</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">polsim Documentation</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#installation" id="installation"><h1>Installation</h1></a>
+<p>The first step is to head to the <a href="https://github.com/zmitchell/polsim/releases">GitHub repository</a> and download the latest release for your operating system. <code>polsim</code> is only available for 64-bit operating systems because it's 2019. Here is what the filename will look like for each supported operating system:</p>
+<ul>
+<li>Windows: <code>polsim-&lt;version&gt;-x86_64-pc-windows-msvc.zip</code></li>
+<li>macOS: <code>polsim-&lt;version&gt;-x86_64-apple-darwin.tar.gz</code></li>
+<li>Linux: <code>polsim-&lt;version&gt;-x86_64-unknown-linux-gnu.tar.gz</code></li>
+</ul>
+<p>The next step is to extract the archive you just downloaded and put the executable file somewhere. For Windows, the executable will be called <code>polsim.exe</code>, and for macOS and Linux the executable will be called <code>polsim</code>. <code>polsim</code> doesn't need to be put anywhere special, so you can put it wherever you want.</p>
+<p><code>polsim</code> is a command line program, so you'll be using a shell (<code>cmd.exe</code> on Windows, Terminal on macOS, etc) to interact with it. Your shell needs to know where to find <code>polsim</code> in order to use it, so you have two options:</p>
+<ul>
+<li>Put <code>polsim</code> in a directory, then avigate to this directory each time you want to use <code>polsim</code>.</li>
+<li>Put <code>polsim</code> in a directory, then add that directory to your shell's <code>PATH</code> so you can use <code>polsim</code> from any directory.</li>
+</ul>
+<p>The second option is more convenient (in my opinion), so it's the recommended option. If you need help adding a directory to your shell's <code>PATH</code>, here are some guides for each supported operating system:</p>
+<ul>
+<li><a href="https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/">Windows</a></li>
+<li><a href="http://osxdaily.com/2014/08/14/add-new-path-to-path-command-line/">macOS</a></li>
+<li><a href="https://www.techrepublic.com/article/how-to-add-directories-to-your-path-in-linux/">Linux</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="polsim.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="usage.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="polsim.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="usage.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
