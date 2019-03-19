@@ -73,4 +73,4 @@ conditions.
 [polarization]: https://crates.io/crates/polarization
 [toml]: https://github.com/toml-lang/toml
 [rust]: https://www.rust-lang.org/
-[guide]: www.example.com
+[guide]: https://zmitchell.github.io/polsim
