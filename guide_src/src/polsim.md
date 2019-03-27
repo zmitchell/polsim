@@ -1,5 +1,5 @@
 # polsim
-**polsim** is a command line tool for quickly doing polarization simulations with [Jones calculus][jones_calc]. Jones calculus allows you to compute the effect of a sequence of optical elements (polarizers, wave plates, etc) on if the initial state (intensity and polarization) is known. A beam is represented as a vector with two elements (x- and y-components), and an optical element is represented as a 2x2 matrix that operates on the beam/vector. `polsim` makes life easy by letting you skip the tedious work of multiplying the matrices together by hand.
+**polsim** is a command line tool for quickly doing polarization simulations with [Jones calculus][jones_calc]. Jones calculus allows you to compute the effect of a sequence of optical elements (polarizers, wave plates, etc) on a beam if the initial state (intensity and polarization) is known. A beam is represented as a vector with two elements (x- and y-components), and an optical element is represented as a 2x2 matrix that operates on the beam/vector. `polsim` makes life easy by letting you skip the tedious work of multiplying the matrices together by hand.
 
 ## Elevator Pitch
 Would you rather look up this matrix,
