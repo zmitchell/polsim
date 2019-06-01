@@ -22,12 +22,12 @@ struct Cli {
     )]
     input: String,
     #[structopt(
-        short = "p",
-        long = "pretty",
+        short = "t",
+        long = "table",
         raw(takes_value = r#"false"#),
-        help = "Pretty-print the output as a table."
+        help = "Format the output as a table."
     )]
-    pretty: bool,
+    table: bool,
 }
 
 main!(|args: Cli| {
@@ -47,7 +47,7 @@ main!(|args: Cli| {
     match final_beam {
         Ok(beam) => match beam.intensity() {
             Ok(_) => {
-                if args.pretty {
+                if args.table {
                     table_report(beam);
                 } else {
                     basic_report(beam);
