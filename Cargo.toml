@@ -1,7 +1,7 @@
 [package]
 authors = ["Zach Mitchell <zmitchell@fastmail.com>"]
 name = "polsim"
-version = "0.1.1"
+version = "0.1.2"
 description = "CLI application for polarization simulations"
 repository = "https://github.com/zmitchell/polsim"
 homepage = "https://github.com/zmitchell/polsim"
@@ -12,7 +12,7 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 error-chain = "~0.12.0"
-polarization = "~0.1"
+polarization = "~0.2"
 quicli = "~0.3.0"
 serde = "~1.0.0"
 serde_derive = "~1.0.0"
