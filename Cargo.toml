@@ -1,7 +1,15 @@
 [package]
 authors = ["Zach Mitchell <zmitchell@fastmail.com>"]
 name = "polsim"
-version = "0.1.0"
+version = "0.1.1"
+description = "CLI application for polarization simulations"
+repository = "https://github.com/zmitchell/polsim"
+homepage = "https://github.com/zmitchell/polsim"
+readme = "README.md"
+categories = ["science", "simulation", "command-line-utilities"]
+keywords = ["physics", "optics", "lasers"]
+license = "MIT OR Apache-2.0"
+
 [dependencies]
 error-chain = "~0.12.0"
 polarization = "~0.1"
