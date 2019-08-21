@@ -297,7 +297,7 @@ pub fn validate_system(sys: &SystemDef) -> Result<OpticalSystem> {
     }
     match beam_res {
         Err(err) => Err(err),
-        Ok(beam) => Ok(OpticalSystem::new().with_beam(beam).with_elements(elements)),
+        Ok(beam) => Ok(OpticalSystem::new().add_beam(beam).add_elements(elements)),
     }
 }
 
